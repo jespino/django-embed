@@ -4,12 +4,12 @@ from django.template.loader import get_template
 from django.template import Context
 
 
-class PreziHandler(BaseHandler):
+class ScribdHandler(BaseHandler):
     def get_url_from_id(self, content_id):
-        return "http://prezi.com/embed/{}".format(content_id)
+        return "http://www.scribd.com/embeds/{}".format(content_id)
 
     def get_embed_code(self, content_id, size):
-        template = get_template("embed/prezi.html")
+        template = get_template("embed/scribd.html")
         context = Context({
             'content_id': content_id,
         })
@@ -17,8 +17,8 @@ class PreziHandler(BaseHandler):
 
     def get_id_from_url(self, url):
         patterns = [
-            'prezi\.com/([a-zA-Z\d\-]+)/.*',
-            '^([a-zA-Z\d\-]+)$',
+            'scribd\.com/doc/(\d+)/.*',
+            '^(\d+)$',
 
         ]
         for pattern in patterns:

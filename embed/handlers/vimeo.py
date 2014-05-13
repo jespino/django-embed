@@ -4,7 +4,7 @@ from django.template.loader import get_template
 from django.template import Context
 
 
-class YouTubeHandler(BaseHandler):
+class VimeoHandler(BaseHandler):
     def get_url_from_id(self, content_id):
         return "https://player.vimeo.com/video/{}".format(content_id)
 
